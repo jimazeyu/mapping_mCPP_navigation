@@ -1,2 +1,2 @@
-
+mapping_2d
 -DCATKIN_DEVEL_PREFIX=/home/passoni/jibot_ws/mapping-mCPP-navigation/devel -DCMAKE_INSTALL_PREFIX=/home/passoni/jibot_ws/mapping-mCPP-navigation/install -G Unix Makefiles

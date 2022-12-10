@@ -7,7 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/passoni/jibot_ws/mapping-mCPP-navigation/devel:$CMAKE_PREFIX_PATH"
 export PWD='/home/passoni/jibot_ws/mapping-mCPP-navigation/build'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/passoni/jibot_ws/mapping-mCPP-navigation/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/passoni/jibot_ws/mapping-mCPP-navigation/src:$ROS_PACKAGE_PATH"
