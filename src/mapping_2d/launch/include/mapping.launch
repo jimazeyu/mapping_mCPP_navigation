@@ -1,0 +1,41 @@
+
+<launch>
+  <arg name="slam_method"  default="gmapping" doc="opt: gmapping,hector,cartographer,karto"/>
+
+  <arg name="scan_topic"  default="scan" />
+  <arg name="base_frame"  default="base_footprint"/>
+  <arg name="odom_frame"  default="odom"/>
+
+  <!-- gmapping  -->
+  <group if="$(eval slam_method == 'gmapping')">
+    <include file="$(find mapping_2d)/launch/slam_method/gmapping.launch" >
+        <arg name="scan_topic"  value="scan" />
+        <arg name="base_frame"  value="base_footprint"/>
+        <arg name="odom_frame"  value="odom"/>
+    </include>
+  </group>
+
+  <!-- hector  -->
+  <group if="$(eval slam_method == 'hector')">
+    <include file="$(find mapping_2d)/launch/slam_method/hector.launch" >
+        <arg name="scan_topic"  value="scan" />
+        <arg name="base_frame"  value="base_footprint"/>
+        <arg name="odom_frame"  value="odom"/>
+    </include>
+  </group> 
+
+   <!-- karto -->
+  <group if="$(eval slam_method == 'karto')">
+    <include file="$(find mapping_2d)/launch/slam_method/karto.launch" >
+        <arg name="scan_topic"  value="scan" />
+        <arg name="base_frame"  value="base_footprint"/>
+        <arg name="odom_frame"  value="odom"/>
+    </include>
+  </group>  
+
+   <!-- cartographer  -->
+  <group if="$(eval slam_method == 'cartographer')">
+    <include file="$(find cartographer_ros)/launch/demo_revo_lds.launch" />
+  </group>  
+
+</launch>

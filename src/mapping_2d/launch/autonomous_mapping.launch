@@ -1,0 +1,39 @@
+<!-- Mapping with manual publishing points -->
+<launch>
+
+    <!-- Configuration -->
+    <arg name="world_name"  default="fake_bridge" />
+    <arg name="robot_name"  default="jibot"/>
+    <arg name="robot_x_pos" default="0.0"/>
+    <arg name="robot_y_pos" default="0.0"/>
+    <arg name="robot_z_pos" default="0.0"/>
+    <arg name="robot_yaw"   default="0.0"/>
+    <arg name="slam_method" default="gmapping" doc="gmapping,hector,karto,cartographer"/>
+
+    <!-- Create the world -->
+    <include file="$(find mapping_2d)/launch/include/create_world.launch">
+        <arg name="world_name"  value="$(arg world_name)"/>
+    </include>
+    <!-- Put the robot -->
+    <include file="$(find mapping_2d)/launch/include/place_robot.launch">
+        <arg name="robot_name"  value="$(arg robot_name)"/>
+        <arg name="robot_x_pos" value="$(arg robot_x_pos)"/>
+        <arg name="robot_y_pos" value="$(arg robot_y_pos)"/>
+        <arg name="robot_z_pos" value="$(arg robot_z_pos)"/>
+        <arg name="robot_yaw"   value="$(arg robot_yaw)"/>
+    </include>
+
+    <!-- SLAM -->
+    <include file="$(find mapping_2d)/launch/include/mapping.launch">
+        <arg name="slam_method"  value="$(arg slam_method)"/>
+    </include>    
+
+    <!-- move base -->
+    <include file="$(find mapping_2d)/launch/include/move_base.launch">
+        <arg name="cmd_vel_topic" value="cmd_vel" />
+        <arg name="odom_topic" value="odom" />
+        <arg name="move_forward_only" value="false"/>
+    </include>        
+
+
+</launch>

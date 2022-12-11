@@ -1,0 +1,19 @@
+<launch>
+  <!-- Robot's info and initial position -->
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="robot_name"  default="jibot"/>
+  <arg name="robot_x_pos" default="0.0"/>
+  <arg name="robot_y_pos" default="0.0"/>
+  <arg name="robot_z_pos" default=" 0.0"/>
+  <arg name="robot_yaw"   default=" 0.0"/>
+
+  <!-- Import robot's model -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- Put the robot -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model $(arg robot_name) -x $(arg robot_x_pos) -y $(arg robot_y_pos) -z $(arg robot_z_pos) -Y $(arg robot_yaw) -param robot_description" /> 
+
+</launch>

@@ -1,0 +1,15 @@
+<!-- Create a scene with a world file -->
+<launch>
+  <!-- Set the world name -->
+  <arg name="world_name" default="fake_bridge" />
+
+  <!-- Create the world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find mapping_2d)/world/$(arg world_name).world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>  
+</launch>

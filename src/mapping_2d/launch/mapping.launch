@@ -1,6 +1,0 @@
-<launch>
-    <arg name="slam_method"  default="gmapping" doc="opt: gmapping,hector,cartographer,karto"/>
-
-    <include file="$(find mapping_2d)/slam_method/gmapping.launch" />
-
-</launch>
