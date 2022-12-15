@@ -1,0 +1,56 @@
+<launch>
+    <!-- import the map -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find multi_points_navigation)/map/map.yaml" output="screen" />
+
+    <!-- Configuration -->
+    <arg name="world_name"  default="fake_bridge" />
+
+    <!-- Create the world -->
+    <include file="$(find mapping_2d)/launch/include/create_world.launch">
+        <arg name="world_name"  value="$(arg world_name)"/>
+    </include>
+
+    <!-- Put the robot1 -->
+    <include file="$(find mapping_2d)/launch/include/place_robot.launch">
+        <arg name="robot_name"  value="jibot1"/>
+        <arg name="if_multi_robot"   value="1"/>
+        <arg name="robot_x_pos" value="0.0"/>
+        <arg name="robot_y_pos" value="0.0"/>
+        <arg name="robot_z_pos" value="0.0"/>
+        <arg name="robot_yaw"   value="0.0"/>
+    </include>
+    <!-- Put the robot2 -->
+    <include file="$(find mapping_2d)/launch/include/place_robot.launch">
+        <arg name="robot_name"  value="jibot2"/>
+        <arg name="if_multi_robot"   value="1"/>
+        <arg name="robot_x_pos" value="10.0"/>
+        <arg name="robot_y_pos" value="0.0"/>
+        <arg name="robot_z_pos" value="0.0"/>
+        <arg name="robot_yaw"   value="0.0"/>
+    </include>
+
+    <!-- amcl localization-->
+    <include file="$(find multi_points_navigation)/launch/include/amcl.launch" >
+        <arg name="ns" value="jibot1" />
+        <arg name="initial_pose_x" value="0.0"/>
+        <arg name="initial_pose_y" value="0.0"/>
+        <arg name="initial_pose_a" value="0.0"/>
+    </include>
+    <include file="$(find multi_points_navigation)/launch/include/amcl.launch" >
+        <arg name="ns" value="jibot2" />
+        <arg name="initial_pose_x" value="10.0"/>
+        <arg name="initial_pose_y" value="0.0"/>
+        <arg name="initial_pose_a" value="0.0"/>
+    </include>
+
+    <!-- move_base navigation-->
+    <include file="$(find multi_points_navigation)/launch/include/move_base.launch">
+        <arg name="ns" value="jibot1" />
+        <arg name="move_forward_only" value="false"/>
+    </include> 
+    <include file="$(find multi_points_navigation)/launch/include/move_base.launch">
+        <arg name="ns" value="jibot2" />
+        <arg name="move_forward_only" value="false"/>
+    </include> 
+
+</launch>
