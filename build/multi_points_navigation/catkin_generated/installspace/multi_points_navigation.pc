@@ -1,0 +1,8 @@
+prefix=/home/passoni/jibot_ws/mapping-mCPP-navigation/install
+
+Name: multi_points_navigation
+Description: Description of multi_points_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

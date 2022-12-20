@@ -35,6 +35,14 @@
 /home/passoni/jibot_ws/mapping-mCPP-navigation/build/gtest/googlemock/gtest/CMakeFiles/list_install_components.dir
 /home/passoni/jibot_ws/mapping-mCPP-navigation/build/gtest/googlemock/gtest/CMakeFiles/gtest.dir
 /home/passoni/jibot_ws/mapping-mCPP-navigation/build/gtest/googlemock/gtest/CMakeFiles/rebuild_cache.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/install/strip.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/install/local.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/test.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/list_install_components.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/edit_cache.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/_catkin_empty_exported_target.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/rebuild_cache.dir
+/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/CMakeFiles/install.dir
 /home/passoni/jibot_ws/mapping-mCPP-navigation/build/mapping_2d/CMakeFiles/install/strip.dir
 /home/passoni/jibot_ws/mapping-mCPP-navigation/build/mapping_2d/CMakeFiles/install/local.dir
 /home/passoni/jibot_ws/mapping-mCPP-navigation/build/mapping_2d/CMakeFiles/rebuild_cache.dir
