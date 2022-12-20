@@ -69,5 +69,8 @@
         <param name="path_file" value="$(find multi_points_navigation)/paths/jibot2.txt"/>
     </node>   
 
+    <!-- rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+        args="-d $(find multi_points_navigation)/rviz/show.rviz"/>
 
 </launch>
