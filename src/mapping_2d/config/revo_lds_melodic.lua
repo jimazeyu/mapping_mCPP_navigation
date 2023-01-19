@@ -39,7 +39,7 @@ options = {
   odom_frame = "odom",
   provide_odom_frame = true,
   publish_frame_projected_to_2d = false,
-  use_odometry = true,
+  use_odometry = false,
 
   use_nav_sat = false,
   use_landmarks = false,

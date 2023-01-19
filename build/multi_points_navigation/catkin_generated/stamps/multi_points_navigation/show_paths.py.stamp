@@ -26,7 +26,7 @@ if __name__=="__main__":
     rospy.init_node("show_paths")
     pub = rospy.Publisher("/paths", MarkerArray, queue_size=10)
     # read file name from rosparam
-    path_dir = rospy.get_param("~path_dir")
+    path_dir = rospy.get_param("~path_dir","/home/passoni/jibot_ws/test_paths")
     # read all the files from the directory
     path_files = [os.path.join(path_dir, f) for f in os.listdir(path_dir) if os.path.isfile(os.path.join(path_dir, f))]
     # read all the paths

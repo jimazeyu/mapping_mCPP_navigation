@@ -1,0 +1,8 @@
+prefix=/home/passoni/jibot_ws/mapping-mCPP-navigation/devel
+
+Name: sensor_data_processing
+Description: Description of sensor_data_processing
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

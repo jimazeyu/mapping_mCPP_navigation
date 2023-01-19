@@ -1,33 +1,24 @@
 <!-- Mapping with manual publishing points -->
 <launch>
-
-    <!-- Configuration -->
-    <arg name="world_name"  default="fake_bridge" />
-    <arg name="robot_name"  default="jibot"/>
-    <arg name="if_multi_robot"   default="0"/>
-    <arg name="robot_x_pos" default="0.0"/>
-    <arg name="robot_y_pos" default="0.0"/>
-    <arg name="robot_z_pos" default="0.0"/>
-    <arg name="robot_yaw"   default="0.0"/>
     <arg name="slam_method" default="gmapping" doc="gmapping,hector,karto,cartographer"/>
 
     <!-- Create the world -->
-    <include file="$(find mapping_2d)/launch/include/create_world.launch">
-        <arg name="world_name"  value="$(arg world_name)"/>
-    </include>
-    <!-- Put the robot -->
-    <include file="$(find mapping_2d)/launch/include/place_robot.launch">
-        <arg name="robot_name"  value="$(arg robot_name)"/>
-        <arg name="if_multi_robot"   value="$(arg if_multi_robot)"/>
-        <arg name="robot_x_pos" value="$(arg robot_x_pos)"/>
-        <arg name="robot_y_pos" value="$(arg robot_y_pos)"/>
-        <arg name="robot_z_pos" value="$(arg robot_z_pos)"/>
-        <arg name="robot_yaw"   value="$(arg robot_yaw)"/>
+    <include file="$(find mapping_2d)/launch/include/create_all.launch">
+        <arg name="world_name"  value="bridge_8x40" />
+        <arg name="robot_name"  value="jibot"/>
+        <arg name="if_multi_robot"   value="0"/>
+        <arg name="robot_x_pos" value="0.0"/>
+        <arg name="robot_y_pos" value="0.0"/>
+        <arg name="robot_z_pos" value="0.0"/>
+        <arg name="robot_yaw"   value="0.0"/>
     </include>
 
     <!-- SLAM -->
     <include file="$(find mapping_2d)/launch/include/mapping.launch">
         <arg name="slam_method"  value="$(arg slam_method)"/>
+        <arg name="scan_topic"  value="scan" />
+        <arg name="base_frame"  value="base_footprint"/>
+        <arg name="odom_frame"  value="odom"/>
     </include>    
 
     <!-- move base -->
@@ -37,5 +28,7 @@
         <arg name="move_forward_only" value="false"/>
     </include>        
 
+    <!-- rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" required="true" />
 
 </launch>

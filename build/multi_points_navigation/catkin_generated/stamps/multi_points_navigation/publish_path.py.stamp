@@ -38,12 +38,12 @@ def pose_callback(msg):
 
 
 if __name__=="__main__":
+    rospy.init_node("publish_path", anonymous=True)
     # get robot_name from rosparam
-    robot_name = rospy.get_param("~robot_name","jibot2")
+    robot_name = rospy.get_param("~robot_name")
     # read file name from rosparam
     filename = rospy.get_param("~path_dir","/home/passoni/jibot_ws/mapping-mCPP-navigation/src/multi_points_navigation/paths/"+robot_name+".txt")
 
-    rospy.init_node("publish_path_"+robot_name, anonymous=True)
     # read the path
     path = read_path(filename)
     # move_base goals publisher
@@ -60,7 +60,7 @@ if __name__=="__main__":
     rate = rospy.Rate(10)
 
     # wait for rospy to be ready
-    time.sleep(1)
+    time.sleep(5)
     
     # initialize path
     marker = Marker()

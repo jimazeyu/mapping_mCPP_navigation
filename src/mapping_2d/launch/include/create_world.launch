@@ -1,7 +1,7 @@
 <!-- Create a scene with a world file -->
 <launch>
   <!-- Set the world name -->
-  <arg name="world_name" default="fake_bridge" />
+  <arg name="world_name" default="bridge_8x40" />
 
   <!-- Create the world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">

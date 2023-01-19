@@ -7,3 +7,5 @@
 subdirs("gtest")
 subdirs("multi_points_navigation")
 subdirs("mapping_2d")
+subdirs("sensor_data_processing")
+subdirs("robot_pose_ekf")
