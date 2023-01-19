@@ -53,4 +53,24 @@
         <arg name="move_forward_only" value="false"/>
     </include> 
 
+    <!-- show global path -->
+    <node name="show_paths" pkg="multi_points_navigation" type="show_paths.py" output="screen" respawn="true">
+        <param name="path_dir" value="$(find multi_points_navigation)/paths"/>
+    </node>
+
+    <!-- follow the path -->
+    <node name="publish_path_jibot1" pkg="multi_points_navigation" type="publish_path.py" output="screen" respawn="true">
+        <param name="robot_name" value="jibot1"/>
+        <param name="path_file" value="$(find multi_points_navigation)/paths/jibot1.txt"/>
+    </node>
+
+    <node name="publish_path_jibot2" pkg="multi_points_navigation" type="publish_path.py" output="screen" respawn="true">
+        <param name="robot_name" value="jibot2"/>
+        <param name="path_file" value="$(find multi_points_navigation)/paths/jibot2.txt"/>
+    </node>   
+
+    <!-- rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+        args="-d $(find multi_points_navigation)/rviz/show.rviz"/>
+
 </launch>

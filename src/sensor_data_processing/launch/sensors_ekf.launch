@@ -1,0 +1,27 @@
+<launch>
+  <!-- 发布传感器 -->
+  <node pkg="sensor_data_processing" type="add_noise" name="noise_publisher" >
+    <param name="uwb_noise" value="0.1" />
+    <param name="odom_noise_xy" value="0.05" />
+    <param name="odom_noise_theta" value="0.1" />
+  </node>
+  <!-- odom_combined和odom_noise到odom静态变换 -->
+  <node pkg="tf" type="static_transform_publisher" name="odom_combined_to_odom" args="0 0 0 0 0 0 odom odom_combined 100" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_noise_to_odom" args="0 0 0 0 0 0 odom odom_noise 100" />
+  <!-- Robot pose ekf 拓展卡尔曼滤波-->
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+    <param name="output_frame" value="odom_combined"/>
+    <param name="base_footprint_frame" value="base_footprint"/>
+    <param name="freq" value="30.0"/>
+    <param name="sensor_timeout" value="2.0"/>
+    <param name="odom_used" value="false"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <param name="gps_used" value="true"/>
+
+    <remap from="imu_data" to="imu_fake" />
+    <remap from="odom" to="odom_noise" />
+    <remap from="gps" to="uwb" />
+  </node>
+
+</launch>

@@ -1,0 +1,16 @@
+<launch>
+    <!-- Create the world -->
+    <include file="$(find mapping_2d)/launch/include/create_all.launch">
+        <arg name="world_name"  value="bridge_8x40" />
+        <arg name="robot_name"  value="jibot"/>
+        <arg name="if_multi_robot"   value="0"/>
+        <arg name="robot_x_pos" value="0.0"/>
+        <arg name="robot_y_pos" value="0.0"/>
+        <arg name="robot_z_pos" value="0.0"/>
+        <arg name="robot_yaw"   value="0.0"/>
+    </include>
+
+    <!-- rviz -->
+    <node pkg="rviz" type="rviz" name="rviz" required="true" />
+
+</launch>

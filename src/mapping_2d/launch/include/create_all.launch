@@ -1,0 +1,27 @@
+<!-- Create a robot in the environment -->
+<launch>
+
+    <!-- Configuration -->
+    <arg name="world_name"  default="fake_bridge" />
+    <arg name="robot_name"  default="jibot"/>
+    <arg name="if_multi_robot"   default="0"/>
+    <arg name="robot_x_pos" default="0.0"/>
+    <arg name="robot_y_pos" default="0.0"/>
+    <arg name="robot_z_pos" default="0.0"/>
+    <arg name="robot_yaw"   default="0.0"/>
+
+    <!-- Create the world -->
+    <include file="$(find mapping_2d)/launch/include/create_world.launch">
+        <arg name="world_name"  value="$(arg world_name)"/>
+    </include>
+    <!-- Put the robot -->
+    <include file="$(find mapping_2d)/launch/include/place_robot.launch">
+        <arg name="robot_name"  value="$(arg robot_name)"/>
+        <arg name="if_multi_robot"   value="$(arg if_multi_robot)"/>
+        <arg name="robot_x_pos" value="$(arg robot_x_pos)"/>
+        <arg name="robot_y_pos" value="$(arg robot_y_pos)"/>
+        <arg name="robot_z_pos" value="$(arg robot_z_pos)"/>
+        <arg name="robot_yaw"   value="$(arg robot_yaw)"/>
+    </include>
+
+</launch>

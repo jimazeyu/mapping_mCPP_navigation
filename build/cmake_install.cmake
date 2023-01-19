@@ -131,7 +131,10 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/passoni/jibot_ws/mapping-mCPP-navigation/build/gtest/cmake_install.cmake")
+  include("/home/passoni/jibot_ws/mapping-mCPP-navigation/build/multi_points_navigation/cmake_install.cmake")
   include("/home/passoni/jibot_ws/mapping-mCPP-navigation/build/mapping_2d/cmake_install.cmake")
+  include("/home/passoni/jibot_ws/mapping-mCPP-navigation/build/sensor_data_processing/cmake_install.cmake")
+  include("/home/passoni/jibot_ws/mapping-mCPP-navigation/build/robot_pose_ekf/cmake_install.cmake")
 
 endif()
 
