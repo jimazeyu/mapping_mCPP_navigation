@@ -1,8 +1,0 @@
-prefix=/home/passoni/jibot_ws/mapping-mCPP-navigation/devel
-
-Name: mapping_2d
-Description: Description of mapping_2d
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

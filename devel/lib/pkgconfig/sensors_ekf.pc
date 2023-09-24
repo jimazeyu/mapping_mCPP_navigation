@@ -1,8 +1,0 @@
-prefix=/home/passoni/jibot_ws/mapping-mCPP-navigation/devel
-
-Name: sensors_ekf
-Description: Description of sensors_ekf
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

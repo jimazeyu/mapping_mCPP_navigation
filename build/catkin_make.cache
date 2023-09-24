@@ -1,2 +1,0 @@
-mapping_2d:multi_points_navigation:robot_pose_ekf:sensor_data_processing
--DCATKIN_DEVEL_PREFIX=/home/passoni/jibot_ws/mapping-mCPP-navigation/devel -DCMAKE_INSTALL_PREFIX=/home/passoni/jibot_ws/mapping-mCPP-navigation/install -G Unix Makefiles
